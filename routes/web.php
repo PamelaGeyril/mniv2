@@ -31,10 +31,13 @@ Route::get('/admin/login', function () {
     Route::get('/admin/eop', [AdminController::class, 'eop'])->name('eop');
     Route::get('/admin/complete-reports', [AdminController::class, 'completeReports'])->name('adminbutton');
     Route::get('/admin/admin-button', [AdminController::class, 'adminbutton'])->name('adminbutton');
+    Route::get('/admin/import-data', [AdminController::class, 'importdata'])->name('importdata');
+
+    Route::post('/admin/importCsv', [AdminController::class, 'importCsv'])->name('admin.importCsv');
 
 
 
-    Route::get('/agent', [AgentController::class, 'dashboard'])->name('dashboard');
+    Route::get('/agent', [AgentController::class, 'dashboard'])->name('agent.dashboard');
 
     Route::group(['prefix' => '/admin/users', 'as' => 'users.'], function(){
         Route::get('/', [UserController::class, 'index'])->name('index');

@@ -347,7 +347,7 @@ return [
         ],
         [
             'text' => 'Import Leads',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/import-data',
             'icon' => 'fas fa-file-import'
         ],
         [

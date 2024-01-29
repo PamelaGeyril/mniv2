@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\DataImport;
+use App\Models\NrMniData;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Reader;
+use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
@@ -29,5 +34,17 @@ class AdminController extends Controller
     public function adminbutton()
     {
         return view('admin.admin-button');
+    }
+
+    public function importdata()
+    {
+        return view('admin.import');
+    }
+
+    public function importCsv(Request $request)
+    {
+        Excel::import(new DataImport, $request->file);
+
+        return back()->with('success', 'Successfully uploaded data.');        
     }
 }
